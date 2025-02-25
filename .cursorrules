@@ -1,0 +1,52 @@
+rules:
+  - description: "Create a web app where users can upload a video and download generated subtitles in an .srt file."
+    steps:
+      - name: "Frontend"
+        tasks:
+          - description: "Build a simple file upload form."
+            tech: "React (or plain HTML form)"
+            details: 
+              - "Allow user to upload video (MP4, MOV, etc.)."
+              - "Show upload progress bar."
+          - description: "Create a button to trigger subtitle generation after video upload."
+            tech: "React"
+            details:
+              - "Button should trigger API call to backend for subtitle generation."
+
+      - name: "Backend"
+        tasks:
+          - description: "Set up API for generating subtitles from video."
+            tech: "Node.js + Express"
+            details:
+              - "Accept the video file uploaded from the frontend."
+              - "Use Whisper API or another STT service to generate subtitles."
+              - "Return the generated `.srt` subtitle file."
+
+      - name: "Speech-to-Text"
+        tasks:
+          - description: "Integrate speech-to-text API (Whisper or Google STT) to generate subtitles."
+            tech: "OpenAI Whisper API (or Google Speech-to-Text)"
+            details:
+              - "Use the API to transcribe audio from the video into subtitle text."
+
+      - name: "Subtitle Formatting"
+        tasks:
+          - description: "Format subtitles into a valid `.srt` file."
+            tech: "Node.js"
+            details:
+              - "Ensure the correct timestamp formatting for the subtitles."
+              - "Return the `.srt` file after subtitle generation."
+
+      - name: "Video Storage"
+        tasks:
+          - description: "Store the uploaded video and generated `.srt` file temporarily."
+            tech: "Local or temporary cloud storage"
+            details:
+              - "Keep video files and subtitles for a short time (for download) before they are deleted."
+        
+      - name: "File Download"
+        tasks:
+          - description: "Provide a download link for the generated `.srt` file."
+            tech: "Frontend (React)"
+            details:
+              - "After subtitle generation, display a button to download the `.srt` file."
