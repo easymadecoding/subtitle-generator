@@ -1,4 +1,5 @@
 A full-stack web-application MVP that receives a video file (all media formats are supported) and spits back the subtitles for its audio in an `.srt` file.
+
 It uses Whisper.cpp for the AI processing that happens in order to turn the speech from audio into text.
 
 **Quick Start:**
